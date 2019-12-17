@@ -2,9 +2,21 @@
 #FONTS
 \*------------------------------------*/
 
+@font-face {
+  font-family: 'Inter Web';
+  font-weight: 400;
+  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter Web';
+  font-weight: 500;
+  src: url('../fonts/Inter-UI-Medium.woff2') format('woff2');
+}
+
 /*------------------------------------*\
-#Variables
-\*------------------------------------*/
+  #Variables
+  \*------------------------------------*/
 
 :root {
   /* Global colors */
@@ -25,19 +37,18 @@
   --global-color-neutral-x-dark: #606274;
   --global-color-neutral-xx-dark: #4b4c60;
   --global-color-neutral-xxx-dark: #35374d;
-  --global-color-neutral-xxxx-dark: #202021;
+  --global-color-neutral-xxxx-dark: #20223a;
   --global-color-error: #ff3333;
   --global-color-error-transparent: #ff3333bf;
   --global-color-error-x-transparent: #ff33334d;
 
   /* global page settings */
   --global-page-color: var(--global-color-neutral-xxxx-dark);
-  --global-backgroundColor: #202021;
-  --global-input-color-email: #8f8f8f;
+  --global-page-backgroundColor: var(--global-color-neutral-xxxx-light);
   --global-selection-backgroundColor: var(--global-color-alpha);
 
   /* border radius */
-  --global-borderRadius: 30px;
+  --global-borderRadius: 3px;
   --global-borderWidth: 1px;
 
   /* transitions */
@@ -75,7 +86,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --global-page-color: White;
-    --global-backgroundColor: var(--global-color-neutral-xxxx-dark);
+    --global-page-backgroundColor: var(--global-color-neutral-xxxx-dark);
 
     --global-label-color: var(--global-color-neutral-xx-light);
     --global-placeholder-color: var(--global-color-neutral-dark);
@@ -90,21 +101,21 @@
 }
 
 /*------------------------------------*\
-#GENERIC
-\*------------------------------------*/
+  #GENERIC
+  \*------------------------------------*/
 
 /*
-    Generic: Page
-    ---
-    Global page styles + universal box-sizing:
-*/
+      Generic: Page
+      ---
+      Global page styles + universal box-sizing:
+  */
 
 html {
-  background-color: var(--global-backgroundColor);
+  background-color: var(--global-page-backgroundColor);
   color: var(--global-page-color);
   font-size: 16px;
   line-height: 1.5;
-  font-family: 'Maven Pro', Helvetica, arial, sans-serif;
+  font-family: 'Inter Web', Helvetica, arial, sans-serif;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -117,11 +128,11 @@ html {
 }
 
 /*
-* Remove text-shadow in selection highlight:
-* https://twitter.com/miketaylr/status/12228805301
-*
-* Customize the background color to match your design.
-*/
+  * Remove text-shadow in selection highlight:
+  * https://twitter.com/miketaylr/status/12228805301
+  *
+  * Customize the background color to match your design.
+  */
 
 ::-moz-selection {
   background: var(--global-selection-backgroundColor);
@@ -136,14 +147,14 @@ html {
 }
 
 /*------------------------------------*\
-#Elements
-\*------------------------------------*/
+  #Elements
+  \*------------------------------------*/
 
 /*
-Elements: Images
----
-Default markup for images to make them responsive
-*/
+  Elements: Images
+  ---
+  Default markup for images to make them responsive
+  */
 
 img {
   max-width: 100%;
@@ -151,10 +162,10 @@ img {
 }
 
 /*
-    Elements: typography
-    ---
-    Default markup for typographic elements
-*/
+      Elements: typography
+      ---
+      Default markup for typographic elements
+  */
 
 h1,
 h2,
@@ -274,14 +285,14 @@ input::placeholder {
 }
 
 /*------------------------------------*\
-#OBJECTS
-\*------------------------------------*/
+  #OBJECTS
+  \*------------------------------------*/
 
 /*
-    Objects: Row
-    ---
-    Creates a horizontal row that stretches the viewport and adds padding around children
-*/
+      Objects: Row
+      ---
+      Creates a horizontal row that stretches the viewport and adds padding around children
+  */
 
 .o-row {
   position: relative;
@@ -295,6 +306,11 @@ input::placeholder {
 }
 
 /* size modifiers */
+
+.o-row--lg {
+  padding-top: 48px;
+  padding-bottom: 24px;
+}
 
 .o-row--xl {
   padding-top: 72px;
@@ -316,10 +332,10 @@ input::placeholder {
 }
 
 /*
-    Objects: Container
-    ---
-    Creates a horizontal container that sets de global max-width
-*/
+      Objects: Container
+      ---
+      Creates a horizontal container that sets de global max-width
+  */
 
 .o-container {
   margin-left: auto;
@@ -329,10 +345,10 @@ input::placeholder {
 }
 
 /*
-    Objects: Row
-    ---
-    Creates a horizontal row that stretches the viewport and adds padding around children
-*/
+      Objects: Row
+      ---
+      Creates a horizontal row that stretches the viewport and adds padding around children
+  */
 
 .o-row {
   position: relative;
@@ -351,7 +367,8 @@ input::placeholder {
 /* size modifiers */
 
 .o-row--lg {
-  padding: 30px 60px;
+  padding-top: var(--global-whitespace-lg);
+  padding-bottom: var(--global-whitespace);
 }
 
 @media (min-width: 768px) {
@@ -362,10 +379,10 @@ input::placeholder {
 }
 
 /*
-    Objects: Container
-    ---
-    Creates a horizontal container that sets de global max-width
-*/
+      Objects: Container
+      ---
+      Creates a horizontal container that sets de global max-width
+  */
 
 .o-container {
   margin-left: auto;
@@ -375,10 +392,10 @@ input::placeholder {
 }
 
 /*
-    Objects: section
-    ---
-    Creates vertical whitespace between adjacent sections inside a row
-*/
+      Objects: section
+      ---
+      Creates vertical whitespace between adjacent sections inside a row
+  */
 
 .o-section {
   position: relative;
@@ -402,12 +419,12 @@ input::placeholder {
 }
 
 /*
-    Objects: Layout
-    ---
-    The layout object provides us with a column-style layout system. This object
-    contains the basic structural elements, but classes should be complemented
-    with width utilities
-*/
+      Objects: Layout
+      ---
+      The layout object provides us with a column-style layout system. This object
+      contains the basic structural elements, but classes should be complemented
+      with width utilities
+  */
 
 .o-layout {
   display: -webkit-flex;
@@ -527,10 +544,10 @@ input::placeholder {
 }
 
 /*
-    Objects: List
-    ---
-    Small reusable object to remove default list styling from lists
-*/
+      Objects: List
+      ---
+      Small reusable object to remove default list styling from lists
+  */
 
 .o-list {
   list-style: none;
@@ -538,10 +555,10 @@ input::placeholder {
 }
 
 /*
-    Object: Button reset
-    ---
-    Small button reset object
-*/
+      Object: Button reset
+      ---
+      Small button reset object
+  */
 
 .o-button-reset {
   border: none;
@@ -567,10 +584,10 @@ input::placeholder {
 }
 
 /*
-    Object: Hide accessible
-    ---
-    Accessibly hide any element
-*/
+      Object: Hide accessible
+      ---
+      Accessibly hide any element
+  */
 
 .o-hide-accessible {
   position: absolute;
@@ -584,19 +601,14 @@ input::placeholder {
 }
 
 /*------------------------------------*\
-#COMPONENTS
-\*------------------------------------*/
+  #COMPONENTS
+  \*------------------------------------*/
 
 /*
-    Component: Logo
-    ---
-    Website main logo
-*/
-
-.c-image {
-  height: 50%;
-  width: 50%;
-}
+      Component: Logo
+      ---
+      Website main logo
+  */
 
 .c-logo {
   height: var(--global-whitespace);
@@ -631,27 +643,24 @@ input::placeholder {
 }
 
 /*
-    Component: Card
-    ---
-    Card with box shadow
-*/
+      Component: Card
+      ---
+      Card with box shadow
+  */
 
 .c-card {
   --card-borderRadius: var(--global-borderRadius);
-  background-color: var(--global-backgroundColor, White);
+  background-color: var(--card-backgroundColor, White);
   margin-bottom: var(--global-whitespace);
   border-radius: var(--card-borderRadius, var(--global-borderRadius));
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.075);
   overflow: hidden;
-}
-
-.c-card__body {
-  text-align: center;
 }
 
 /* Add padding to child for more flexibility */
 .c-card__body,
 .c-card__footer {
-  /*padding: var(--global-whitespace);*/
+  padding: var(--global-whitespace);
 }
 
 .c-card__footer {
@@ -666,22 +675,6 @@ input::placeholder {
   font-weight: 600;
 }
 
-.c-text-medium {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 500;
-  padding: 8px 10px 8px;
-  margin: 0px;
-}
-
-.c-text-bold {
-  font-size: 20px;
-  line-height: 30px;
-  font-weight: 800;
-  padding: 16px 10px 8px;
-  margin: 0px;
-}
-
 /* This allows c-card__body and __footer to have equal padding everywhere */
 
 .c-card__body > *:last-child,
@@ -693,26 +686,11 @@ input::placeholder {
 
 @media (min-width: 27em) {
   .c-card__body {
-    padding: var(--global-whitespace-md);
+    padding: var(--global-whitespace-xl);
   }
 
   .c-card__title {
     margin-bottom: var(--global-whitespace-xl);
-  }
-}
-
-@media (min-width: 360px) {
-  .c-card__body {
-    padding: 5px;
-  }
-  .o-row--lg {
-    padding: 15px 30px;
-  }
-}
-
-@media (min-width: 500px) {
-  .o-row--lg {
-    padding: 30px 60px;
   }
 }
 
@@ -724,14 +702,13 @@ input::placeholder {
 }
 
 /*
-    Component: Forms
-    ---
-    Everything form related here
-*/
+      Component: Forms
+      ---
+      Everything form related here
+  */
 
 .c-form-field {
   position: relative;
-  margin-bottom: 8px;
 }
 
 .c-form-field--option {
@@ -740,32 +717,27 @@ input::placeholder {
 }
 
 /*
-    Component: Input
-    ---
-    Class to put on all input="text" like form inputs
-*/
+      Component: Input
+      ---
+      Class to put on all input="text" like form inputs
+  */
 
 .c-input {
   --input-transition: all var(--global-transitionDuration-alpha) var(--global-transitionEasing-out);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  height: 42px;
   width: 100%;
   border-radius: var(--input-borderRadius, var(--global-borderRadius));
-  border: 1px solid #6a6a6d;
-  background-color: var(--global-input-color-email);
+  border: var(--input-borderWidth, var(--global-borderWidth)) solid var(--input-borderColor, var(--global-input-borderColor));
+  background-color: var(--input-backgroundColor, var(--global-input-backgroundColor));
+  color: var(--global-input-color);
   font-family: inherit;
   font-size: 16px;
-  padding: var(--global-baseline) var(--global-whitespace-md);
+  line-height: calc(var(--global-baseline) * 3);
+  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
   outline: none;
   transition: var(--input-transition);
-}
-
-.c-input::placeholder {
-  font-size: 16px;
-  font-weight: 500;
-  color: white;
 }
 
 .c-input:hover {
@@ -779,9 +751,9 @@ input::placeholder {
 }
 
 /*
-Input password with toggle checkbox on top of it needs
-more padding on the right to avoid overlap
-*/
+  Input password with toggle checkbox on top of it needs
+  more padding on the right to avoid overlap
+  */
 
 .c-input--password-with-toggle {
   padding-right: 52px;
@@ -800,15 +772,15 @@ more padding on the right to avoid overlap
 }
 
 /*
-    Component: Label
-    ---
-    Class to put on all form labels
-*/
+      Component: Label
+      ---
+      Class to put on all form labels
+  */
 
 .c-label {
   margin-bottom: 0;
   font-size: 14px;
-  padding-bottom: calc(var(--global-whitespace-sm) * 3);
+  padding-bottom: var(--global-whitespace-sm);
   line-height: calc(var(--global-baseline) * 2);
   color: var(--label-color, var(--global-label-color));
 }
@@ -839,7 +811,7 @@ more padding on the right to avoid overlap
 
 .is-floating,
 .c-form-field:focus-within .c-label--floating {
-  transform: translateY(var(--global-baseline));
+  transform: translateY(calc(var(--global-baseline) * -3));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -849,19 +821,19 @@ more padding on the right to avoid overlap
 }
 
 /*
-    Component: Button
-    ---
-    Class to put on form buttons or
-*/
+      Component: Button
+      ---
+      Class to put on form buttons or
+  */
 
 .c-button {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: var(--button-borderRadius, var(--global-borderRadius));
   border: var(--button-borderWidth, var(--global-borderWidth)) solid var(--button-borderColor, var(--global-color-alpha-dark));
   background-color: var(--button-backgroundColor, var(--global-color-alpha));
   color: #fff;
-  padding: var(--global-baseline) var(--global-whitespace-md);
+  padding: calc(var(--global-baseline) * 1.5 - var(--button-borderWidth, var(--global-borderWidth))) var(--global-whitespace-md);
   line-height: calc(var(--global-baseline) * 3);
   width: 100%;
   outline: none;
@@ -896,10 +868,10 @@ more padding on the right to avoid overlap
 }
 
 /*
-    Component: Option list
-    ---
-
-*/
+      Component: Option list
+      ---
+  
+  */
 
 .c-option-list {
   margin-bottom: var(--global-whitespace-lg);
@@ -910,10 +882,10 @@ more padding on the right to avoid overlap
 }
 
 /*
-    Custom option
-    ---
-    Custom checkboxes & radio buttons
-*/
+      Custom option
+      ---
+      Custom checkboxes & radio buttons
+  */
 
 /* Hide the actual input with the class .o-hide-accessible */
 
@@ -994,10 +966,10 @@ more padding on the right to avoid overlap
 }
 
 /*
-    Component: Custom Toggle
-    ---
-    Visually change a checkbox into a toggle
-*/
+      Component: Custom Toggle
+      ---
+      Visually change a checkbox into a toggle
+  */
 
 .c-custom-toggle-list {
   --toggle-list-borderColor: var(--global-color-neutral-xxx-light);
@@ -1106,10 +1078,10 @@ more padding on the right to avoid overlap
 }
 
 /*
-    Component: Custom Select
-    ---
-    Custom select dropdown
-*/
+      Component: Custom Select
+      ---
+      Custom select dropdown
+  */
 
 .c-custom-select {
   display: block;
@@ -1127,10 +1099,10 @@ more padding on the right to avoid overlap
 }
 
 /*
-    Component: Password Toggle
-    ---
-    Password toggle custom checkbox
-*/
+      Component: Password Toggle
+      ---
+      Password toggle custom checkbox
+  */
 
 .c-password-toggle-container {
   position: relative;
@@ -1150,9 +1122,9 @@ more padding on the right to avoid overlap
   display: flex;
   align-items: center;
   /* top: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute; */
+      right: 0;
+      bottom: 0;
+      position: absolute; */
   /* padding: 0 16px; */
   padding: 14px 16px;
 }
@@ -1304,38 +1276,38 @@ more padding on the right to avoid overlap
 }
 
 /*
-
-.c-tent:hover {
-    transform: translateY(calc(var(--global-whitespace-xs) * -1));
-}
-
-.c-tent:hover .c-tent__icon-wrapper {
-    transform: scale(.75);
-}
-
-.c-tent:hover .c-tent__content {
-    transform: translateY(calc(var(--tent__icon-size) / -6));
-}
-
-.c-tent:hover .c-tent__action {
-    transform: none;
-    opacity: 1;
-}
-
-
-.c-tent:hover::before {
-    opacity: 0;
-}
-
-.c-tent:hover::after {
-    opacity: 1;
-}
-
-.c-tent:active {
-    transform: none;
-}
-
-*/
+  
+  .c-tent:hover {
+      transform: translateY(calc(var(--global-whitespace-xs) * -1));
+  }
+  
+  .c-tent:hover .c-tent__icon-wrapper {
+      transform: scale(.75);
+  }
+  
+  .c-tent:hover .c-tent__content {
+      transform: translateY(calc(var(--tent__icon-size) / -6));
+  }
+  
+  .c-tent:hover .c-tent__action {
+      transform: none;
+      opacity: 1;
+  }
+  
+  
+  .c-tent:hover::before {
+      opacity: 0;
+  }
+  
+  .c-tent:hover::after {
+      opacity: 1;
+  }
+  
+  .c-tent:active {
+      transform: none;
+  }
+  
+  */
 
 @media (prefers-color-scheme: dark) {
   .c-tent {
@@ -1366,8 +1338,8 @@ more padding on the right to avoid overlap
 }
 
 /*------------------------------------*\
-#States
-\*------------------------------------*/
+  #States
+  \*------------------------------------*/
 
 .has-error {
   --label-color: var(--global-color-error);
@@ -1378,14 +1350,14 @@ more padding on the right to avoid overlap
 }
 
 /*------------------------------------*\
-#UTILITIES
-\*------------------------------------*/
+  #UTILITIES
+  \*------------------------------------*/
 
 /*
-    Utilities: color
-    ---
-    Utility classes to put specific colors onto elements
-*/
+      Utilities: color
+      ---
+      Utility classes to put specific colors onto elements
+  */
 
 .u-color-neutral {
   color: var(--global-color-neutral);
@@ -1396,10 +1368,10 @@ more padding on the right to avoid overlap
 }
 
 /*
-    Utilities: spacing
-    ---
-    Utility classes to put specific margins and paddings onto elements
-*/
+      Utilities: spacing
+      ---
+      Utility classes to put specific margins and paddings onto elements
+  */
 
 .u-pt-clear {
   padding-top: 0 !important;
@@ -1430,10 +1402,10 @@ more padding on the right to avoid overlap
 }
 
 /*
-    Utilities: max-width
-    ---
-    Utility classes to put specific max widths onto elements
-*/
+      Utilities: max-width
+      ---
+      Utility classes to put specific max widths onto elements
+  */
 
 .u-max-width-xs {
   max-width: 27em !important;
@@ -1456,10 +1428,10 @@ more padding on the right to avoid overlap
 }
 
 /*
-    Utilities: align
-    ---
-    Utility classes align text or components
-*/
+      Utilities: align
+      ---
+      Utility classes align text or components
+  */
 
 .u-align-text-center {
   text-align: center;
@@ -1470,20 +1442,20 @@ more padding on the right to avoid overlap
 }
 
 /*
-    Utilities: text
-    Utility classes to create smaller or bigger test
-*/
+      Utilities: text
+      Utility classes to create smaller or bigger test
+  */
 
 .u-text-sm {
   font-size: 14px;
 }
 
 /*
-    Utility: Widths
-    ---
-    Utility classes to put specific widths onto elements
-    Will be mostly used on o-layout__item
-*/
+      Utility: Widths
+      ---
+      Utility classes to put specific widths onto elements
+      Will be mostly used on o-layout__item
+  */
 
 .u-width-auto {
   width: auto !important;
@@ -1678,43 +1650,43 @@ more padding on the right to avoid overlap
 }
 
 /*------------------------------------*\
-#MEDIA
-\*------------------------------------*/
+  #MEDIA
+  \*------------------------------------*/
 
 /*
-    Media Queries
-    ---
-    EXAMPLE Media Queries for Responsive Design.
-    These examples override the primary ('mobile first') styles.
-    USE THEM INLINE!
-*/
+      Media Queries
+      ---
+      EXAMPLE Media Queries for Responsive Design.
+      These examples override the primary ('mobile first') styles.
+      USE THEM INLINE!
+  */
 
 /* Extra small devices (portrait phones, less than 576px)
-No media query since this is the default in mobile first design
-*/
+  No media query since this is the default in mobile first design
+  */
 
 /* Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {}
-*/
+  @media (min-width: 576px) {}
+  */
 
 /* Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {}
-*/
+  @media (min-width: 768px) {}
+  */
 
 /* Large devices (landscape tablets, desktops, 992px and up)
-@media (min-width: 992px) {}
-*/
+  @media (min-width: 992px) {}
+  */
 
 /* Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {}
-*/
+  @media (min-width: 1200px) {}
+  */
 
 /*
-    Print styles.
-    ---
-    Inlined to avoid the additional HTTP request:
-    http://www.phpied.com/delay-loading-your-print-css/
-*/
+      Print styles.
+      ---
+      Inlined to avoid the additional HTTP request:
+      http://www.phpied.com/delay-loading-your-print-css/
+  */
 
 @media print {
   *,
@@ -1723,7 +1695,7 @@ No media query since this is the default in mobile first design
     background: transparent !important;
     color: #000 !important;
     /* Black prints faster:
-        http://www.sanbeiji.com/archives/953 */
+          http://www.sanbeiji.com/archives/953 */
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -1738,9 +1710,9 @@ No media query since this is the default in mobile first design
     content: ' (' attr(title) ')';
   }
   /*
-    * Don't show links that are fragment identifiers,
-    * or use the `javascript:` pseudo protocol
-    */
+      * Don't show links that are fragment identifiers,
+      * or use the `javascript:` pseudo protocol
+      */
   a[href^='#']:after,
   a[href^='javascript:']:after {
     content: '';
@@ -1754,9 +1726,9 @@ No media query since this is the default in mobile first design
     page-break-inside: avoid;
   }
   /*
-    * Printing Tables:
-    * http://css-discuss.incutio.com/wiki/Printing_Tables
-    */
+      * Printing Tables:
+      * http://css-discuss.incutio.com/wiki/Printing_Tables
+      */
   thead {
     display: table-header-group;
   }
