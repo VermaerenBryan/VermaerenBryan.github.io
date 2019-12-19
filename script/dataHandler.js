@@ -1,9 +1,5 @@
-const handleData = function(url, callback, method = 'GET', body = null) {
-  fetch(url, {
-    method: method,
-    body: body,
-    headers: { 'content-type': 'application/json' }
-  })
+const handleData = function(url, callback) {
+  fetch(url)
     .then(function(response) {
       if (!response.ok) {
         throw Error(`Probleem bij de fetch(). Status Code: ${response.status}`);

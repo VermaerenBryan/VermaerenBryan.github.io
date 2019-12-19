@@ -90,9 +90,9 @@
 
     --global-label-color: var(--global-color-neutral-xx-light);
     --global-placeholder-color: var(--global-color-neutral-dark);
-    --global-input-backgroundColor: var(--global-color-neutral-xxxx-dark);
+    --global-input-backgroundColor: #f5f6fa;
     --global-input-color: var(--global-color-neutral-xxxx-light);
-    --global-input-borderColor: var(--global-input-backgroundColor);
+    --global-input-borderColor: #e2e3e7;
     --global-input-hover-borderColor: var(--global-input-backgroundColor);
     --global-input-focus-borderColor: var(--global-input-backgroundColor);
     --global-input-focus-boxShadowColor: var(--global-color-alpha-transparent);
@@ -115,10 +115,19 @@ html {
   color: var(--global-page-color);
   font-size: 16px;
   line-height: 1.5;
-  font-family: 'Inter Web', Helvetica, arial, sans-serif;
+  font-family: 'Maven Pro', Helvetica, arial, sans-serif;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: url('../img/dawn-190055_1280.jpg');
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 *,
@@ -602,7 +611,149 @@ input::placeholder {
 
 /*------------------------------------*\
   #COMPONENTS
-  \*------------------------------------*/
+\*------------------------------------*/
+
+.c-spacing {
+  border-top: 1px solid #777777;
+  padding-top: 12px;
+}
+
+.c-align-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-margin-bottom {
+  margin-bottom: 0px;
+}
+
+.c-text-value {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  padding-bottom: 12px;
+  padding-right: 12px;
+  padding-left: 12px;
+  margin-bottom: 0;
+  color: #d8d8d8;
+}
+
+.c-text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  padding-bottom: 12px;
+  padding-right: 12px;
+  padding-left: 12px;
+  margin-bottom: 0;
+  color: #d8d8d8;
+}
+
+.c-text-day {
+  display: flex;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  padding: 16px 20px;
+  margin-bottom: 0;
+  justify-content: center;
+}
+
+.c-text-medium {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  padding-bottom: 12px;
+  padding-right: 12px;
+  padding-left: 12px;
+  margin-bottom: 0;
+}
+
+.c-text-bold {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 800;
+  padding: 16px 10px 8px;
+  margin: 0px;
+}
+
+.c-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  background-color: #484748;
+  border: 1px solid #202021;
+  border-radius: 50%;
+  opacity: 90%;
+}
+
+.c-circle__text {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 45px;
+  color: white;
+  margin: 0px;
+}
+
+.c-thermometer {
+  height: 80px;
+  width: 80px;
+  fill: #ffffff;
+}
+
+.c-header {
+  height: 66px;
+  background-color: #484748;
+  opacity: 90%;
+}
+
+/*------------------------------------*\
+#Dashboard
+\*------------------------------------*/
+
+.c-dashboard {
+  display: grid;
+  grid-gap: 100px;
+  margin-bottom: var(--global-whitespace-md);
+}
+
+.c-dashboard__item {
+  box-shadow: var(--global-box-shadow);
+  background-color: #fff;
+}
+
+@media (min-width: 360px) {
+  .c-dashboard {
+    display: grid;
+    grid-gap: 65px;
+    margin-bottom: var(--global-whitespace-md);
+  }
+}
+
+@media (min-width: 992px) {
+  .c-dashboard {
+    grid-gap: 100px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+
+  .c-dashboard__item {
+    /*grid-column: 1 / 13;
+      grid-column: span 12;*/
+    /*grid-column: 1 / -1;*/
+  }
+}
+
+.c-card__item {
+  padding: 20px;
+  background-color: #484748;
+  border: 1px solid #202021;
+  border-radius: 5px;
+  opacity: 90%;
+}
 
 /*
       Component: Logo
@@ -709,6 +860,8 @@ input::placeholder {
 
 .c-form-field {
   position: relative;
+  margin: 0px;
+  width: 357px;
 }
 
 .c-form-field--option {
@@ -727,17 +880,26 @@ input::placeholder {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 100%;
   border-radius: var(--input-borderRadius, var(--global-borderRadius));
-  border: var(--input-borderWidth, var(--global-borderWidth)) solid var(--input-borderColor, var(--global-input-borderColor));
-  background-color: var(--input-backgroundColor, var(--global-input-backgroundColor));
-  color: var(--global-input-color);
+  border: #484748;
+  background-color: #8f8f8f;
+  color: white;
+  opacity: 90%;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 800;
   line-height: calc(var(--global-baseline) * 3);
   padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
   outline: none;
   transition: var(--input-transition);
+  margin: 0px;
+  max-width: 293px;
+}
+
+@media (min-width: 992px) {
+  .c-input {
+    min-width: 468px;
+  }
 }
 
 .c-input:hover {
@@ -819,6 +981,76 @@ input::placeholder {
     --label--floating-backgroundColor: transparent;
   }
 }
+
+.c-selection {
+  padding: 10px 400px;
+}
+
+@media (min-width: 360px) {
+  .c-selection {
+    height: 50px;
+    padding: 10px 20px;
+  }
+
+  .c-input {
+    width: 288px;
+  }
+}
+
+@media (min-width: 500px) {
+  .c-selection {
+    height: 50px;
+    padding: 10px 70px;
+  }
+
+  .c-input {
+    width: 325px;
+  }
+}
+
+@media (min-width: 760px) {
+  .c-selection {
+    height: 50px;
+    padding: 10px 120px;
+  }
+
+  .c-input {
+    width: 325px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .c-selection {
+    height: 50px;
+    padding: 10px 170px;
+  }
+}
+
+@media (min-width: 1260px) {
+  .c-selection {
+    height: 50px;
+    padding: 10px 220px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .c-selection {
+    height: 50px;
+    padding: 10px 500px;
+  }
+}
+
+/*@media (min-width: 1200px){
+    .c-selection {
+        padding: 0px 700px;
+      }
+}*/
+
+/*@media (min-width: 1200px){
+    .c-selection {
+        padding: 0px 700px;
+      }
+}*/
 
 /*
       Component: Button
@@ -1086,6 +1318,8 @@ input::placeholder {
 .c-custom-select {
   display: block;
   position: relative;
+  width: 20%;
+  margin: 0px;
 }
 
 .c-custom-select__symbol {
@@ -1354,6 +1588,38 @@ input::placeholder {
   \*------------------------------------*/
 
 /*
+    Utilities: spacing
+    ---
+    Utility classes specific spacing column elements
+*/
+
+.u-x-column-1-of-2 {
+  grid-column: span 2;
+}
+
+.u-x-column-1-of-4 {
+  grid-column: span 4;
+}
+
+.u-x-column-1-of-6 {
+  grid-column: span 6;
+}
+
+.u-x-column-1-of-8 {
+  grid-column: span 8;
+}
+
+/*
+      Utilities: spacing
+      ---
+      Utility classes specific spacing row elements
+  */
+
+.u-x-row-1-of-2 {
+  grid-row: span 6;
+}
+
+/*
       Utilities: color
       ---
       Utility classes to put specific colors onto elements
@@ -1372,6 +1638,10 @@ input::placeholder {
       ---
       Utility classes to put specific margins and paddings onto elements
   */
+
+.u-m-o {
+  margin: 24px 50px;
+}
 
 .u-pt-clear {
   padding-top: 0 !important;
